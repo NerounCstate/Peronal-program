@@ -47,12 +47,63 @@ const int MAX = 18;
 //	return 0;
 //}
 
-int main() {
-	int arr[] = { 10,20,30 };
-	int i, * p = arr;
-	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
-		printf("数组的第%d个值为：%d，内存地址是%p\n", i + 1, *p, p);
+//int main() {
+//	int arr[] = { 10,20,30 };
+//	int i, * p = arr;
+//	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
+//		printf("数组的第%d个值为：%d，内存地址是%p\n", i + 1, *p, p);
+//		p++;
+//	}
+//	return 0;
+//}
+
+
+//查找
+#include<time.h>
+#include<stdlib.h>
+
+
+int arr[50] = {};
+int num = 0;
+//我需要打乱一组长度为50的整数
+void init() {
+	srand(time(NULL));
+	for (int i = 0; i < 51; i++) {
+		arr[i] = i;
+	}
+	for (int i = 0; i < 51; i++) {
+		int r = rand() % 51;
+		int temp = arr[i];
+		arr[i] = arr[r];
+		arr[r] = temp;
+	}
+}
+//我需要添加一个函数，专门用来查找某个数值
+int linearSearch(int num, int len) {
+	int* p = arr;
+	for(int i = 0; i < len; i++) {
+		if (*p == num) {
+			return i+1;
+		}
 		p++;
+		//if (i == len-1) {//int数组不会以\0为结尾
+		//	return -1;
+		//}多余判断，在循环到最后一位还没找到就会自动结束循环并返回-1
+	}
+}
+int main() {
+	init();
+	for (int i = 0; i < 51; i++) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n请输入要查找的数值");
+	scanf("%d", &num);
+	int ret = linearSearch(num, sizeof(arr) / sizeof(arr[0]));
+	if (ret == -1) {
+		printf("没有找到\n");
+	}
+	else {
+		printf("找到了，是第%d位\n", ret);
 	}
 	return 0;
 }

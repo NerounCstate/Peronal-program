@@ -1234,14 +1234,14 @@
 // }
 
 
-int main() {
-	int arr[] = { 10,20,30 };
-	int i, * p = arr;
-	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
-		printf("数组的第%d个值为：%d，内存地址是%p\n", i + 1, *p, p);
-		p++;
-	}
-	return 0;
-}
+//int main() {
+//	int arr[] = { 10,20,30 };
+//	int i, * p = arr;
+//	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
+//		printf("数组的第%d个值为：%d，内存地址是%p\n", i + 1, *p, p);
+//		p++;
+//	}
+//	return 0;
+//}
 
 //指针
