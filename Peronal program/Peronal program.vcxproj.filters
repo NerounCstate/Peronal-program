@@ -18,10 +18,10 @@
     <ClCompile Include="FileName.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\text2.c">
+    <ClCompile Include="..\..\..\..\Desktop\text2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\练习集合篇.c">
+    <ClCompile Include="..\..\..\..\Desktop\练习集合篇.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
