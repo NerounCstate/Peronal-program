@@ -33,13 +33,26 @@ const int MAX = 18;
 //}
 
 //定义指针变量/数组时，不带*是这个值地址，带*是指针指向的值。地址用%p，值用值所属于的数据类型
+//用作指针时，arr --> &arr[0]
+
+//int main() {
+//	int arr[] = { 10,20,30 };
+//	int i, * p[MAX];
+//	for (i = 0; i < MAX; i++) {
+//		p[i] = &arr[i];
+//	}
+//	for (i = 0; i < MAX; i++) {
+//		printf("%d", *p[i]);
+//	}
+//	return 0;
+//}
+
 int main() {
 	int arr[] = { 10,20,30 };
-	int i, * p[MAX];
-	for (i = 0; i < MAX; i++) {
-		p[i] = &arr[i];
+	int i, * p = arr;
+	for (i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
+		printf("数组的第%d个值为：%d，内存地址是%p\n", i + 1, *p, p);
+		p++;
 	}
-	for (i = 0; i < MAX; i++) {
-		printf("%d", *p[i]);
-	}
+	return 0;
 }
