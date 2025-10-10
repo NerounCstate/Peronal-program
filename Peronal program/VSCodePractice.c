@@ -34,24 +34,24 @@
 
 
 //正确使用指针来遍历多个数组
-int main(){
-    // 用于读取数组
-    int arr1[] = {1, 2, 3, 4, 5};
-    int arr2[] = {1, 2, 3, 4, 5, 6, 7, 8};
-    int arr3[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    int *arr[] = {arr1, arr2, arr3};
-    // 用于计算长度
-    int len1 = sizeof(arr1) / sizeof(arr1[0]);
-    int len2 = sizeof(arr2) / sizeof(int);
-    int len3 = sizeof(arr3) / sizeof(4);
-    int lenArr[] = {len1, len2, len3};
+// int main(){
+//     // 用于读取数组
+//     int arr1[] = {1, 2, 3, 4, 5};
+//     int arr2[] = {1, 2, 3, 4, 5, 6, 7, 8};
+//     int arr3[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//     int *arr[] = {arr1, arr2, arr3};
+//     // 用于计算长度
+//     int len1 = sizeof(arr1) / sizeof(arr1[0]);
+//     int len2 = sizeof(arr2) / sizeof(int);
+//     int len3 = sizeof(arr3) / sizeof(4);
+//     int lenArr[] = {len1, len2, len3};
    
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < lenArr[i]; j++){
-            // 先取arr[i]的数组，再取arr[i]的第j个值
-            printf("%d", arr[i][j]);
-        }
-        printf("\n");
-    }
-}
+//     for(int i = 0; i < 3; i++){
+//         for(int j = 0; j < lenArr[i]; j++){
+//             // 先取arr[i]的数组，再取arr[i]的第j个值
+//             printf("%d", arr[i][j]);
+//         }
+//         printf("\n");
+//     }
+// }
 
