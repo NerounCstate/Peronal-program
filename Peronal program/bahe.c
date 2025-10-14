@@ -1,31 +1,5 @@
-逻辑不符合题意
- int cut(int n,int*p,int len){
-     int *q = p;
-     int min = 0;
-     for (int i = 0; i < n - 1; i++){
-         int sum1 = 0, sum2 = 0,resf = 0;
-         *q = *p + i;
-         for (int k = 0; k < i+1;k++)
-         {
-             sum1 = sum1 + *p;
-             *p++;
-         }
-          for (int j = 0; j < n - i; j++)
-         {
-             sum2 = sum2 + *q;
-             *q++;
-         }
-         if(sum1>sum2){
-             resf = sum1 - sum2;
-         }else{
-             resf= sum2 - sum1;
-         }
-         if(min >= resf){
-             min = resf;
-         }
-     }
-     return min;
- }
+#include <stdio.h>
+
  const int MAX = 100000;
  int cut1(int n, int *p)
  {

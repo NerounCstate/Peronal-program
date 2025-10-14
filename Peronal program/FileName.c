@@ -184,34 +184,34 @@ const int MAX = 18;
 // }
 
 //指针高级
-// void swap(void *p1, void *p2, int len);
-// int main()
-// {
-// 	int a = 10;
-// 	short b = 20;
-// 	int *p1 = &a;
-// 	short *p2 = &b;
-// 	//char *p3 = p1;不同类型的指针之间不能赋值，void除外。
-// 	void *p3 = p1;//但是void无法被读取,也无法进行计算
-// 	printf("%d\n%d\n",*p1,*p2);
-// 	int c = 100;
-// 	int d = 200;
-// 	int *p5 = &c;
-// 	int *p4 = &d;
-// 	swap(p5,p4,4);
-// 	printf("%d,%d", c, d);
-// }
-// //使用void传递变量使得函数更有通用性
-// void swap(void*p1,void*p2,int len){//传入数据类型的大小用于循环
-// 	//先把void转换成char（1字节大小）指针便于读取
-// 	char*pc1 = p1;
-// 	char *pc2 = p2;
-// 	char temp = 0;
-// 	for (int i = 0; i < len; i++){//一个字节一个字节的操作（这里是swap交换）
-// 		temp = *pc1;
-// 		*pc1 = *pc2;
-// 		*pc2 = temp;
-// 		pc1++, pc2++;
-// 	}
+void swap(void *p1, void *p2, int len);
+int main()
+{
+	int a = 10;
+	short b = 20;
+	int *p1 = &a;
+	short *p2 = &b;
+	//char *p3 = p1;不同类型的指针之间不能赋值，void除外。
+	void *p3 = p1;//但是void无法被读取,也无法进行计算
+	printf("%d\n%d\n",*p1,*p2);
+	int c = 100;
+	int d = 200;
+	int *p5 = &c;
+	int *p4 = &d;
+	swap(p5,p4,4);
+	printf("%d,%d", c, d);
+}
+//使用void传递变量使得函数更有通用性
+void swap(void*p1,void*p2,int len){//传入数据类型的大小用于循环
+	//先把void转换成char（1字节大小）指针便于读取
+	char*pc1 = p1;
+	char *pc2 = p2;
+	char temp = 0;
+	for (int i = 0; i < len; i++){//一个字节一个字节的操作（这里是swap交换）
+		temp = *pc1;
+		*pc1 = *pc2;
+		*pc2 = temp;
+		pc1++, pc2++;
+	}
 	
-// }
+}

@@ -97,25 +97,82 @@
 
 
 
-//利用指针数组来快速调用函数
-int jia(int a,int b){
-    return a + b;
-}
-int jian(int a,int b){
-    return a - b;
-}
-int cheng(int a,int b){
-    return a * b;
-}
-int chu(int a,int b){
-    return a / b;
-}
-int main(){
-    //因为函数会退化，所以这是一个函数的指针数组。            *数组名字[几个量](参数类型,参数类型) = {}            只是比定义数组时多了要传入的参数类型
-    int (*p[4])(int,int) = {jia, jian, cheng, chu};
-    int a,b,choose;
-    scanf("%d %d", &a, &b);
-    scanf("%d", &choose);
-    int res = (p[choose - 1])(a, b);
-    printf("%d", res);
-}
+// //利用指针数组来快速调用函数
+// int jia(int a,int b){
+//     return a + b;
+// }
+// int jian(int a,int b){
+//     return a - b;
+// }
+// int cheng(int a,int b){
+//     return a * b;
+// }
+// int chu(int a,int b){
+//     return a / b;
+// }
+// int main(){
+//     //因为函数会退化，所以这是一个函数的指针数组。            *数组名字[几个量](参数类型,参数类型) = {}            只是比定义数组时多了要传入的参数类型
+//     int (*ch[4])(int, int) = {jia, jian, cheng, chu};
+//     int a,b,choose;
+//     scanf("%d %d", &a, &b);
+//     scanf("%d", &choose);
+//     int res = (ch[choose - 1])(a, b);
+//     printf("%d", res);
+// }
+
+//在C语言中字符串会被拆分成单个字符，所以用char来定义字符串时[量]要加一给'\0'
+// char str0[4] = {'a','b','c','\0'};
+// char str1[4] = {"abc"};
+// //str0 == str1
+// //char *str = "abc";
+
+// char comp[4][10] = {
+//     // 最多4个字符串，每个字符串最多9+‘\0’个字符
+//     "cpu","gpu","ram", "rom"
+// };
+
+// //用指针来存储字符串
+// char *pcomp[] = {"cpu","gpu","ram","rom"};
+// int main(){
+//     for(int i = 0; i < 4; i++){
+//         printf("%s\n", comp[i]);
+//         printf("%s\n", pcomp[i]);
+//     }
+// }
+
+// char str1[99] = "hello";
+// char str2[99] = "world";
+// int main(){
+//     //字符串比较
+//     int res = strcmp(str1, str2);
+//     if(res < 0){
+//         strcat(str1, str2);
+//         printf("%s%s", str1,str2);
+//     }else if(res > 0){
+//         printf("str1 > str2");
+//     }else{
+//         printf("str1 == str2");
+//     }
+// }
+
+
+//模拟用户登录
+// char *t_username = "ZXN";
+// char *t_password = "123456";
+// char name[1000],password[1000];
+// int main(){
+//     for (int i = 0; i < 3; i++)
+//     {
+//         printf("请输入用户名：\n");
+//         scanf("%s", name);
+//         printf("请输入密码：\n");
+//         scanf("%s", password);
+//         printf("%s,%s", name, password);
+//         if(!strcmp(name,t_username)&&!strcmp(password,t_password)){
+//             break;
+//         }else{
+//             printf("登陆失败，您还有%d次机会\n", 3 - i);
+//         }
+//     }
+//     printf("登陆成功");
+// }
