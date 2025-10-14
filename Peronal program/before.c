@@ -1,6 +1,6 @@
  #define _CRT_SECURE_NO_WARNINGS
  #include <stdio.h>
- #include<string.h>
+ #include <string.h>
 // 字面值常量
 // int main(void)
 // {
@@ -452,25 +452,23 @@
 // 	return 0;
 // }
 
-
+//输出较大数
 // int main() {
 // 	int a = 0;
 // 	int b = 0;
 // 	printf("请输入两个整数：");
 // 	scanf("%d %d", &a, &b);
-// 	int num1 = 0;
-// 	int num2 = 0;
-// 	if (a > b) {
-// 		num1 = a;
-// 	}else if(a< b){
-// 		num1 = b;
-// 	}
-// int num 1 = a > b ? a : b;//更加简洁
-// int num 2 = a < b ? a : b;
-// 	else {
-// 		printf("请输入两个不同的数字\n");
-// 		return 0;
-// 	}
+//     int max;
+//     if (a == b)
+//     {
+//         printf("请输入两个不同的数字");
+//     }else{
+//         int max = a > b ? a : b; // 更加简洁替代if-else
+//         printf("%d", max);
+//     }
+    
+// }
+	
 // 	int count = 0;
 // 	for (int i = num2; i <= num1; i++) {
 // 		if (i % 6 == 0 && i % 8 == 0)
@@ -511,20 +509,25 @@
 
 
 
-// question1一个数是否为2的幂次方
-// int main() {
-// 	int n = 0;
-// 	scanf("%d", &n);
-// 	for (int i = 1; i <= n; i = i * 2) {
-// 		if (n == i) {
-// 						printf("yes\n");
-// 						return 0;
-// 		}
-// 		else {
-// 			continue;
-// 		}
-// 	}
-// 	printf("no\n");
+// question1一个数是否为2的倍数
+// int main(){
+//     int in;
+//     scanf("%d", &in);
+//     printf("%s", in % 2 == 0 ? "yes" : "no");
+// }
+//利用二进制的特性判断一个数是否是2的幂次方！
+// int judge(int n){
+//     return n > 0 && (n & (n - 1)) == 0;//&是二进制版的%
+// }
+// int main()
+// {
+//     int in;
+//     scanf("%d", &in);
+//     if(judge(in)){
+//         printf("yes");
+//     }else{
+//         printf("no");
+//     }
 // }
 
 
@@ -543,7 +546,7 @@
 
 
 // 整数反转
-// 我想到了一个窍门，当用10取余%时，取出0所在的位置；用10除/时，删除0所在的数位置.100、1000同理
+// 我想到了一个窍门，当用10取余%时，取出0所在的位置；用10除/时，删除0所在的数位置.100、1000同理！！！
 // int main() {
 // 	int input = 0;
 // 	int output = 0;
@@ -561,8 +564,7 @@
 // int main() {
 // 	int x = 0;
 // 	scanf("%d", &x);
-// 	int i = 0;
-// 	for (i = 1; i <= x; i++) {
+// 	for (int i = 1; i <= x; i++) {
 // 		if (i * i == x) {
 // 			printf("%d\n", i);
 // 			return 0;
@@ -578,7 +580,7 @@
 // }
 
 
-// 回文数
+// 回文数123-->321
 
 // int main() {
 // 	int input = 0;
@@ -586,7 +588,7 @@
 // 	scanf("%d", &input);
 // 	int temp = input;
 // 	while (temp) {
-// 		output = output * 10 + temp / 10;
+// 		output = output * 10 + temp % 10;
 // 		temp = temp / 10;
 // 	}
 // 	if (output == input) {
@@ -611,14 +613,12 @@
 // 	return 0;
 // }
 
-// ////不使用乘除取余的两数相除
-// //#define _CRT_SECURE_NO_WARNINGS
-// //#include <stdio.h>
+//不使用乘除取余的两数相除
 // int main() {
 // 	int dividend = 0;
 // 	int divisor = 0;
 // 	printf("请输入被除数和除数：");
-// 	scanf("%d%d", &dividend, &divisor);
+// 	scanf("%d %d", &dividend, &divisor);
 // 	if (divisor == 0) {
 // 		printf("输入错误\n");
 // 		return 1;
@@ -690,9 +690,18 @@
 // 		}
 // 		printf("\n");
 // 	}
-// }
- 
- 
+// // }
+int main(){
+	int c = 1;
+	for (int i = 0; i < 5; i++){
+		for (int j = 0; j < c; j++){
+			printf("%c", '*');
+			
+		}
+		printf("\n");
+		c++;
+	}
+}
 // 打印三角形
 // int main() {
 // 	char a = '*';

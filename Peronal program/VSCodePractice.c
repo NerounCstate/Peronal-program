@@ -55,3 +55,67 @@
 //     }
 // }
 
+// int main()
+// {
+//     int arr[3];
+//     int *p[3];
+//     for (int i = 0; i < 3;i++){
+//         arr[i] = getchar();
+//         *p[i] = &arr[i];
+//     }
+//     int max, b, c;
+//     max = p[0];
+//     b  = p[1];
+//     c = p[2];
+//     if()
+// }
+
+
+
+
+//指针的类型与指向空间中数据的类型保持一致
+// int arr[] = {1,2,3,4,5};
+// int *q = &arr[0];
+// int (*p)[5] = &arr;
+
+// void func1(){
+//     printf("func1");
+// }
+// int func2(int i,int j){
+//     return i + j;
+// }
+// int main()
+// {
+//     // printf("%d\n%p", p, q);
+//     void (*a)() = func1;
+//     int (*b)(int, int) = func2;
+//     //函数指针可以用来调用函数
+//     a();
+//     int c = b(3, 4);
+//     printf("%d", c);
+// }
+
+
+
+//利用指针数组来快速调用函数
+int jia(int a,int b){
+    return a + b;
+}
+int jian(int a,int b){
+    return a - b;
+}
+int cheng(int a,int b){
+    return a * b;
+}
+int chu(int a,int b){
+    return a / b;
+}
+int main(){
+    //因为函数会退化，所以这是一个函数的指针数组。            *数组名字[几个量](参数类型,参数类型) = {}            只是比定义数组时多了要传入的参数类型
+    int (*p[4])(int,int) = {jia, jian, cheng, chu};
+    int a,b,choose;
+    scanf("%d %d", &a, &b);
+    scanf("%d", &choose);
+    int res = (p[choose - 1])(a, b);
+    printf("%d", res);
+}
