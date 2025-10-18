@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<time.h>
 #include<string.h>
 #include<math.h>
@@ -176,3 +177,175 @@
 //     }
 //     printf("登陆成功");
 // }
+// int main(){
+//     int x = 2, y = 5;
+//     int a = 3;
+//     x += y;
+//     y = x - y;
+//     x -= y;
+//     a += a -= a * a;
+//     printf("%d %d %d",x,y,1-'\0');
+// }
+// #include <stdio.h>
+// int main()
+// {
+//     int a, b;
+
+//     scanf( "a=%d,b=%d", &a, &b);
+    
+//     printf("%d %d", a,b);
+// }
+
+// typedef struct{
+//     char name[100];
+//     int count;
+// } spot;
+// int main(){
+//     //创建数组
+//     spot arr[4] = {{"A", 0}, {"B", 0}, {"C", 0}, {"D", 0}};
+//     srand(time(NULL));
+//     //模拟投票
+//     for (int i = 0; i < 100000;i++){
+//         int choose = rand() % 4 +1;
+//         if(choose == 1){
+//             arr[0].count++;
+//         }else if(choose ==2){
+//             arr[1].count++;
+//         }else if(choose == 3){
+//             arr[2].count++;
+//         }else{
+//             arr[3].count++;
+//         }
+//     }
+//     //比较大小
+//     int max = arr[0].count;
+//     for (int i = 1; i < 4; i++)
+//         {
+//             if(arr[i].count > max){
+//                 max = arr[i].count;
+//             }
+//         }
+//     //找最大的景点
+//     for (int i = 0; i < 4;i++){
+//             if(arr[i].count == max){
+//                 printf("投票最多的景点是%s，共%d张票", arr[i].name, arr[i].count);
+//                 break;
+//             }
+//     }
+// }
+// union MoneyType{
+//     int mony1;
+//     char mony2;
+//     char monystr[100];
+//     //共同体以最大的类型长度进行对齐，公用一个内存空间
+// } M;
+// union M money;
+
+// malloc申请连续杂乱空间，返回首地址
+// calloc申请+数据初始化
+// realloc加减空间（修改）
+// free释放空间
+// int main(){
+//     int *p = calloc(100, sizeof(int));
+//     // if (!p) {
+//     //     fprintf(stderr, "calloc failed\n");
+//     //     return 1;
+//     // }
+//     //赋值
+//     for (int i = 0; i < 100; i++){
+        
+//         *(p + i) = i * 10;
+//         //p[i] = i * 10;
+//     }
+//     //输出
+//     for (int i = 0; i < 100; i++){
+//         printf("%d\n", p[i]);
+//     }
+//     free(p);
+//     return 0;
+// }
+
+// int main(){
+//     int *p = malloc(10);
+//     for(int i = 0; i < 10; i++){
+//         *(p + i) = i * 10;
+//     }
+//     for (int i = 0; i < 10;i++){
+//         printf("%d\n", *p);
+//         p++;
+//     }
+      
+//     free(p);
+    //释放空间后指针不变，但指向的空间不再属于该程序
+    // for (int i = 0; i < 10;i++){
+    //     printf("%d\n", *p);
+    //     p++;
+    // }
+
+
+//---------------------------------------------------------------------------------------
+
+/*fopen打开文件,
+fgetc读取一个字符(读不到返回-1)
+fgets读取一行字符(以换行符为准，读不到返回NULL)
+fread一次读多个文件，fclose关闭文件*/
+/*操作模式：r只读,
+rb能操作2进制文件（图片视频音频）,
+w只写（写入或创建新的），
+a追加写入，在文件最后面写
+wb（与rb类似），
+ab（追加模式）,
+r+读写
+文件路径的反斜杠每次要多写一个作为反斜杠的转义符号*/
+
+
+// #include<stdio.h>
+// int main(){
+//     FILE *file = fopen("C:\\Users\\evany\\Desktop\\test.txt","r");
+//     //int c = fgetc(file);
+//     int c;
+//     while((c = fgetc(file))!= -1){
+//         printf("%c", c);
+//     }
+//     fclose(file);
+// }
+
+
+// int main(){
+//     FILE *f = fopen("C:\\Users\\evany\\Desktop\\test.txt", "r");
+//     int wight = 1024;
+//     char arrf[wight];
+//    // fgets(arrf,wight,f);
+//    //fread返回的读取的数量可以用作输出限制
+//     //int n =fread(arrf,1,wight,f);
+//     int n;
+//     while((n = fread(arrf,1,wight,f)) != 0){
+//         for(int i = 0; i<n;i++){
+//             printf("%c", arrf[i]);
+//         }
+//     }
+//     //printf("%s", arrf);
+//     fclose(f);
+// }
+
+//写数据，fputc(写入成功返回非负数),fputs,fwrite
+#include <stdio.h>
+
+int main() {
+    FILE *file = fopen("C:\\Users\\evany\\Desktop\\test.txt", "a+");
+    // 写入一个字符
+    fputc(97, file);  // 写入 'a'
+    fputs("\nsssss", file);
+
+    // 重置文件指针到开头，准备读取
+    //rewind(file);
+
+    // 读取并打印文件内容
+    char c;
+    while ((c = fgetc(file)) != -1) {
+        printf("%c", c);
+    }
+
+    fclose(file);
+    return 0;
+}
